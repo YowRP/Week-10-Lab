@@ -61,17 +61,23 @@ def main() -> None:
 
             product_id = input("Enter Product ID: ").strip()
             name = input("Enter Product Name: ").strip()
+
+            supplier_id = input("Enter Supplier ID: ").strip()
+            supplier_name = input("Enter Supplier Name: ").strip()
+            contact_email = input("Enter Contact Email: ").strip()
+            supplier = Supplier(supplier_id, supplier_name, contact_email)
+
             try:
                 price = float(input("Enter the price of the product: ").strip())
                 stock = int(input("Enter the stock amount of the product: ").strip())
 
                 if product_type == "1":
                     weight = float(input("Enter the weight (kg): ").strip())
-                    product = PhysicalProduct(product_id, name, price, stock, weight)
+                    product = PhysicalProduct(product_id, name, price, stock, weight, supplier)
 
                 elif product_type == "2":
                     download_size = float(input("Enter the download size (MB): ").strip())
-                    product = DigitalProduct(product_id, name, price, stock, download_size)
+                    product = DigitalProduct(product_id, name, price, stock, download_size, supplier)
 
             except ValueError:
                 print("Invalid input, Product not added.")
