@@ -1,3 +1,4 @@
+from __future__ import annotations
 import json
 import os
 from abc import ABC, abstractmethod
@@ -51,7 +52,7 @@ class Product (ABC):
 
 class CanBeShipped (ABC):
     @abstractmethod
-    def calculate_shipping_cost(self):
+    def calculate_shipping_cost(self) -> None:
         pass
 
 class PhysicalProduct (Product, CanBeShipped):
@@ -63,13 +64,13 @@ class PhysicalProduct (Product, CanBeShipped):
         super().display_information()
         print(f"Weight: {self.__weight}kg")
 
-    def get_fulfilment_info(self):
+    def get_fulfilment_info(self) -> str:
         return "This product requires physical shipping."
 
-    def calculate_shipping_cost(self):
+    def calculate_shipping_cost(self) -> float:
         return 5.00 + (self.__weight * 2.00)
 
-    def to_dict (self):
+    def to_dict (self) -> dict:
         data =  super().to_dict()
         data ["Type"] = "Physical"
         data ["Weight"] = self.__weight
@@ -80,14 +81,14 @@ class DigitalProduct (Product):
         super().__init__(product_id, name, price, stock, supplier)
         self.__download_size = download_size
 
-    def display_information(self):
+    def display_information(self) -> None:
         super().display_information()
         print(f"Download size: {self.__download_size}MB")
 
-    def get_fulfilment_info(self):
+    def get_fulfilment_info(self) -> str:
         return "This product is delivered digitally."
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         data  = super().to_dict()
         data ["Type"] = "Digital"
         data ["Download Size"] = self.__download_size
@@ -96,9 +97,9 @@ class DigitalProduct (Product):
 class Inventory:
 
     def __init__ (self):
-        self.__products = []
+        self.__products: list[Product] = []
 
-    def add_product (self, product):
+    def add_product (self, product: Product) -> bool :
         for i in self.__products:
             if i.get_product_id() == product.get_product_id():
                 return False
@@ -106,14 +107,23 @@ class Inventory:
         self.__products.append(product)
         return True 
 
-    def search_product (self, product_id):
+    def remove_product (self, product_id: str) ->bool :
+        for i in self.__products:
+            if i.get_product_id() == product_id:
+                self.__products.remove(i)
+                return True
+        else:
+            return False
+
+
+    def find_product (self, product_id: str) -> Product| None :
         for i in self.__products:
             if i.get_product_id() == product_id:
                 return i
 
         return None
 
-    def display_all(self):
+    def display_all(self) -> None:
         if not self.__products: #Or can add len(self.__products) == 0:
             print ("The Inventory is empty, please fill in something!")
             return 
@@ -121,17 +131,17 @@ class Inventory:
         for i in self.__products:
             i.display_information()
             
-    def get_all_as_dicts(self):
+    def get_all_as_dicts(self) -> list[dict]:
         result = []
         for i in self.__products:
             result.append(i.to_dict())
         return result
 
-def save_inventory (inventory):
+def save_inventory (inventory: Inventory) -> None :
     with open (INVENTORY_FILE, "w") as f:
         json.dump(inventory.get_all_as_dicts(), f, indent = 4)
 
-def load_inventory ():
+def load_inventory () -> Inventory :
     inventory = Inventory ()
     if os.path.exists(INVENTORY_FILE):
         print("Inventory.json Found")
@@ -153,7 +163,7 @@ def load_inventory ():
 
     return inventory
 
-#def main():
+def main() -> None:
     inventory = load_inventory()
 
     while True:
@@ -201,7 +211,7 @@ def load_inventory ():
 
         elif choice == "3":
             product_id = input("Enter Product ID: ").strip()
-            product = inventory.search_product(product_id)
+            product = inventory.find_product(product_id)
             if product is None:
                 print("Product not found")
                 continue
@@ -221,7 +231,7 @@ def load_inventory ():
 
         elif choice == "4":
             product_id = input("Enter Product ID: ").strip()
-            product = inventory.search_product(product_id)
+            product = inventory.find_product(product_id)
             if product is None:
                 print("Product not found")
             else:
@@ -241,14 +251,5 @@ def load_inventory ():
         else:
             print("Invalid option.")
 
-#if __name__ == "__main__":
-    main()
-
 if __name__ == "__main__":
-    s = Supplier("S1", "Acme", "acme@mail.com")
-    p = PhysicalProduct("P1", "Laptop", 999.0, 5, 2.0, s)
-    d = DigitalProduct("D1", "Ebook", 10.0, 100, 5.0, s)
-    p.display_information()
-    d.display_information()
-    del s
-    p.display_information()
+    main()
