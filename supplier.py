@@ -8,3 +8,7 @@ class Supplier:
     
     def display_information(self) -> None:
         print(f"Supplier ID: {self.supplier_id}, Name: {self.name}, Contact Email: {self.contact_email}")
+
+    def to_dict(self, SupplierID: str, Name: str, ContactEmail: str) -> dict:
+        return {"Product ID": self.supplier_id, "Name": self.name, "Contact Email": self.contact_email}
+    
