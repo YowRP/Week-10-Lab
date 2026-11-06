@@ -49,3 +49,7 @@ class Inventory:
         for i in self.__products:
             result.append(i.to_dict())
         return result
+
+    def get_product(self) -> list[Product]:
+        return self.__products
+    
