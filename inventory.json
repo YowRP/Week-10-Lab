@@ -1,0 +1,28 @@
+[
+    {
+        "Product ID": "P1",
+        "Product Name": "Laptop",
+        "Price": 999.0,
+        "Stock": 5,
+        "Supplier": {
+            "SupplierID": "S1",
+            "Name": "Acme",
+            "ContactEmail": "acme@mail.com"
+        },
+        "Type": "Physical",
+        "Weight": 2.0
+    },
+    {
+        "Product ID": "D1",
+        "Product Name": "Ebook",
+        "Price": 10.0,
+        "Stock": 100,
+        "Supplier": {
+            "SupplierID": "S1",
+            "Name": "Acme",
+            "ContactEmail": "acme@mail.com"
+        },
+        "Type": "Digital",
+        "Download Size": 5.0
+    }
+]

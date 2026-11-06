@@ -1,6 +1,7 @@
 from inventory import Inventory
 from physical_product import PhysicalProduct
 from digital_product import DigitalProduct
+from supplier import Supplier
 import os 
 import json
 
@@ -16,12 +17,16 @@ def load_inventory () -> Inventory :
         print("Inventory.json Found")
         with open (INVENTORY_FILE, "r") as f:
             data = json.load(f)
+            
             for i in data:
+                s = i["Supplier"]
+                supplier = Supplier(s["SupplierID"], s["Name"], s["ContactEmail"])
+
                 if i ["Type"] == "Physical":
-                    product = PhysicalProduct(i["Product ID"], i["Product Name"], i["Price"], i["Stock"], i["Weight"])
+                    product = PhysicalProduct(i["Product ID"], i["Product Name"], i["Price"], i["Stock"], i["Weight"], supplier )
 
                 elif i["Type"] == "Digital":
-                    product = DigitalProduct(i["Product ID"], i["Product Name"], i["Price"], i["Stock"], i["Download Size"])
+                    product = DigitalProduct(i["Product ID"], i["Product Name"], i["Price"], i["Stock"], i["Download Size"], supplier)
 
                 else: 
                     print("Unknown Type. Skipped")
