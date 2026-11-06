@@ -1,3 +1,4 @@
+from __future__ import annotations
 from product import Product
 from physical_product import PhysicalProduct
 from digital_product import DigitalProduct

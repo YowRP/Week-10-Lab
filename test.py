@@ -1,4 +1,6 @@
-from Inventory_manager import Supplier, PhysicalProduct, Inventory
+from supplier import Supplier
+from inventory import Inventory
+from physical_product import PhysicalProduct
 
 s = Supplier("S1", "Acme", "acme@mail.com")
 p = PhysicalProduct("P1", "Laptop", 999.0, 5, 2.0, s)   # created before any inventory

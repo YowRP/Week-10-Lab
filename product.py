@@ -28,9 +28,18 @@ class Product (ABC):
          get_product_ID = self.__product_id
          return get_product_ID
 
+    def get_price(self) -> float:
+        get_price = self.__price
+        return get_price
+
+    def get_name(self) -> str:
+        get_name = self.__name
+        return get_name
+    
     def to_dict(self) -> dict:
         return {"Product ID": self.__product_id, "Product Name": self.__name, "Price": self.__price, "Stock": self.__stock}
 
     @abstractmethod
     def get_fulfilment_info (self) -> str:
         pass
+
