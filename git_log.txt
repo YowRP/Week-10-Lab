@@ -1,0 +1,84 @@
+commit 6a75e26222a8d634cf1fcd05dd7f5fa2935ff07a (HEAD -> main)
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Sat Nov 7 08:50:17 2026 +0800
+
+    docker file added
+
+commit a21b675d3efb959a28a363030336afc70fceea37 (origin/main)
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Sat Nov 7 08:48:06 2026 +0800
+
+    Answer document added
+
+commit 20e5f409bfa493b47702bb0794440c74cdc16fa2
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Sat Nov 7 08:44:32 2026 +0800
+
+    UML diagram added
+
+commit b9d96a38599e08b4452b2266347a9f48e0003864
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Sat Nov 7 08:42:57 2026 +0800
+
+    changes to imports
+
+commit ab160432f9ad77a82bd602a2332863fed1c2c501
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Sat Nov 7 07:35:28 2026 +0800
+
+    test for polymorphism added with get_product to obtain private attributes from the inventory.py
+
+commit ee3b89c60b5611f00b5559632da0632472db2b7a
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 23:02:15 2026 +0800
+
+    manu added supplier
+
+commit a66dcdedc0ed55f87e7150827c20be26c66f1bc4
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 22:42:52 2026 +0800
+
+    corrections made towards adding dictionary to supplier and product class
+
+commit d122af677ee38b9510929de9f07a2e83995bb9eb
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 22:28:58 2026 +0800
+
+    dictionary functions added in product.py and also supplier.py
+
+commit 3b0ff5e5bb407b108426b0b9fc2ee512f91ac58c
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 22:08:45 2026 +0800
+
+    pictures of test added
+
+commit f27a84ebce1a2fd6202510f8f98dfd3e2ad550d6
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 22:04:10 2026 +0800
+
+    test files added
+
+commit f49929730ffa7a554996050cbc9d95115de37305
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 14:59:20 2026 +0800
+
+    getters added for Product class
+
+commit 8cd72b23c6608dcdd4f20eaa096c95e340e6280a
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 14:20:25 2026 +0800
+
+    All class in respective file done, one class one py file
+
+commit 9d312f323cca6d862ba497708cc3076ba3c524ad
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 14:09:43 2026 +0800
+
+    Transfer of classes
+
+commit 6028da1ec8bb5d0ea7b84bc322a4c40b6808c104
+Author: YowRP <2604111@sit.singaporetech.edu.sg>
+Date:   Thu Nov 5 23:10:28 2026 +0800
+
+    Supplier class added
+(END)
