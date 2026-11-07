@@ -9,7 +9,7 @@ INVENTORY_FILE = "inventory.json"
 
 class Inventory:
 
-    def __init__ (self):
+    def __init__ (self) -> None:
         self.__products: list[Product] = []
 
     def add_product (self, product: Product) -> bool :
